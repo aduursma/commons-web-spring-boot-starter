@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <springProfile name="default,development">
+        <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    </springProfile>
+
+    <springProfile name="production">
+        <springProperty scope="context" name="springApplicationName" source="spring.application.name"/>
+        <springProperty scope="context" name="springApplicationVersion" source="info.app.version"/>
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+                <providers>
+                    <logLevel/>
+                    <loggerName/>
+                    <message/>
+                    <pattern>
+                        <pattern>
+                            {
+                            "app_name": "${springApplicationName}",
+                            "app_version": "${springApplicationVersion}",
+                            "correlation_id": "%mdc{correlationId}",
+                            "x_b3_trace_id": "%mdc{X-B3-TraceId}",
+                            "x_b3_parent_span_id": "%mdc{X-B3-ParentSpanId}",
+                            "x_b3_span_id": "%mdc{X-B3-SpanId}"
+                            }
+                        </pattern>
+                    </pattern>
+                    <stackTrace>
+                        <fieldName>stackTrace</fieldName>
+                        <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                            <maxDepthPerThrowable>30</maxDepthPerThrowable>
+                            <rootCauseFirst>true</rootCauseFirst>
+                        </throwableConverter>
+                    </stackTrace>
+                    <threadName/>
+                    <timestamp>
+                        <timeZone>UTC</timeZone>
+                    </timestamp>
+                </providers>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <springProfile name="default,development">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="production">
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+</configuration>

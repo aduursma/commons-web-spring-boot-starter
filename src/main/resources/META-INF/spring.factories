@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  nl.agility.commons.web.config.FilterAutoConfiguration,\
+  nl.agility.commons.web.config.SecurityAutoConfiguration

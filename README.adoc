@@ -1,0 +1,4 @@
+= Commons WEB Spring Boot Starter
+
+== Introduction
+The *Commons WEB Spring Boot Starter* is part of the _Microservices Playground_ project.
