@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <name>Maven Central</name>
+                    <url>https://repo1.maven.org/maven2</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-parent-pom</id>
+                    <name>GitHub parent-pom Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/parent-pom</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-parent-services-pom</id>
+                    <name>GitHub parent-services-pom Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/parent-services-pom</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-commons-web-spring-boot-starter</id>
+                    <name>GitHub commons-web-spring-boot-starter Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/commons-web-spring-boot-starter</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-country-service</id>
+                    <name>GitHub country-service Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/country-service</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-customer-service</id>
+                    <name>GitHub customer-service Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/customer-service</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+                <repository>
+                    <id>github-travel-agency-gateway</id>
+                    <name>GitHub travel-agency-gateway Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/aduursma/travel-agency-gateway</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>github-parent-pom</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-parent-services-pom</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-commons-web-spring-boot-starter</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-country-service</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-customer-service</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-travel-agency-gateway</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+    </servers>
+</settings>
