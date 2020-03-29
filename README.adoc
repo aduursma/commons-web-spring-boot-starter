@@ -1,4 +1,12 @@
 = Commons WEB Spring Boot Starter
+:toc: preamble
+:toclevels: 3
+
+:uri-build-status: https://github.com/aduursma/commons-web-spring-boot-starter/actions
+:img-build-status: https://img.shields.io/github/workflow/status/aduursma/commons-web-spring-boot-starter/Release%20Pipeline?color=green&label=GitHub%20Actions&logo=github
+:uri-version: https://github.com/aduursma/commons-web-spring-boot-starter/actions
+:img-version: https://img.shields.io/github/v/release/aduursma/commons-web-spring-boot-starter?color=green&label=Version&logo=github
+image:{img-build-status}[Build Status Badge,link={uri-build-status}] image:{img-version}[Version Badge,link={uri-version}]
 
 == Introduction
 The *Commons WEB Spring Boot Starter* is part of the _Microservices Playground_ project.
