@@ -91,7 +91,7 @@ jobs:
           java-version: 11
 
       - name: Prepare Release Asset
-        run: mvn -B -U -Drevision=${GITHUB_SHA::8} -DskipTests clean package -s settings.xml
+        run: mvn -B -U -Drevision=${GITHUB_SHA::8} -DskipTests clean jar:jar -s settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_ORGANIZATION_TOKEN }}
 
