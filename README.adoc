@@ -3,10 +3,12 @@
 :toclevels: 3
 
 :uri-build-status: https://github.com/aduursma/commons-web-spring-boot-starter/actions
-:img-build-status: https://img.shields.io/github/workflow/status/aduursma/commons-web-spring-boot-starter/Release%20Pipeline?color=green&label=GitHub%20Actions&logo=github
+:img-build-status: https://img.shields.io/github/workflow/status/aduursma/commons-web-spring-boot-starter/Release%20Pipeline?color=green&label=Release%20Pipeline&logo=github
+:uri-quality-gateway: https://sonarcloud.io/dashboard?id=aduursma_commons-web-spring-boot-starter
+:img-quality-gateway: https://img.shields.io/sonar/quality_gate/aduursma_commons-web-spring-boot-starter?color=green&label=Quality%20Gate&logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io&sonarVersion=8.2
 :uri-version: https://github.com/aduursma/commons-web-spring-boot-starter/actions
 :img-version: https://img.shields.io/github/v/release/aduursma/commons-web-spring-boot-starter?color=green&label=Version&logo=github
-image:{img-build-status}[Build Status Badge,link={uri-build-status}] image:{img-version}[Version Badge,link={uri-version}]
+image:{img-build-status}[Build Status Badge,link={uri-build-status}] image:{img-quality-gateway}[Quality Gateway Badge,link={uri-quality-gateway}] image:{img-version}[Version Badge,link={uri-version}]
 
 == Introduction
 The *Commons WEB Spring Boot Starter* is part of the _Microservices Playground_ project.
