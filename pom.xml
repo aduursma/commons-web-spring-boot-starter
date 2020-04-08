@@ -6,7 +6,7 @@
     <parent>
         <groupId>nl.agility.maven</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>1.0.0-ad38727b</version>
+        <version>1.0.0-08a5e401</version>
     </parent>
 
     <groupId>nl.agility.commons</groupId>
