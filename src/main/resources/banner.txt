@@ -1,5 +1,5 @@
 
-${project.description} (v${project.version})
+${info.app.description} (v${info.app.version})
 
      _         _ _ _ _
     / \   __ _(_) (_) |_ _   _
