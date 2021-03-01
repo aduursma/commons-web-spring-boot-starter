@@ -1,13 +1,11 @@
 package nl.agility.commons.web.filters;
 
+import nl.agility.commons.web.TestController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.slf4j.MDC;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletRequest;
@@ -24,28 +22,24 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class CustomMdcFilterTest {
+class CustomMdcFilterTest {
 
-    private MockMvc mockMvc;
-    private CustomMdcFilter customMdcFilter;
+    MockMvc mockMvc;
 
     @BeforeEach
     public void setUp() {
-        MDC.clear();
-
         mockMvc = MockMvcBuilders
             .standaloneSetup(new TestController())
             .addFilters(new CustomMdcFilter())
             .build();
-
-        customMdcFilter = spy(new CustomMdcFilter());
     }
 
     @Test
-    public void addingAndRemovingPropertiesToTheMdcAreBothAlwaysCalledExactlyOnce() throws Exception {
+    void addingAndRemovingPropertiesToTheMdcAreBothAlwaysCalledExactlyOnce() throws Exception {
         var request = mock(ServletRequest.class);
         var response = mock(ServletResponse.class);
         var filterChain = mock(FilterChain.class);
+        var customMdcFilter = spy(new CustomMdcFilter());
 
         customMdcFilter.doFilter(request, response, filterChain);
 
@@ -54,7 +48,7 @@ public class CustomMdcFilterTest {
     }
 
     @Test
-    public void aRandomCorrelationIdIsAddedToTheMdcWhenACorrelationIdHeaderIsNotPresent() throws Exception {
+    void aRandomCorrelationIdIsAddedToTheMdcWhenACorrelationIdHeaderIsNotPresent() throws Exception {
         mockMvc
             .perform(MockMvcRequestBuilders.get("/test"))
             .andExpect(status().isOk())
@@ -62,21 +56,11 @@ public class CustomMdcFilterTest {
     }
 
     @Test
-    public void theCorrelationIdFromTheCorrelationIdHeaderIsAddedToTheMdcWhenACorrelationIdHeaderIsPresent() throws Exception {
+    void theCorrelationIdFromTheCorrelationIdHeaderIsAddedToTheMdcWhenACorrelationIdHeaderIsPresent() throws Exception {
         mockMvc
             .perform(MockMvcRequestBuilders.get("/test").header(CORRELATION_ID, "48485a3953bb6124"))
             .andExpect(status().isOk())
             .andExpect(content().string(equalTo("48485a3953bb6124")));
-    }
-
-    @RestController
-    private class TestController {
-
-        @GetMapping("/test")
-        public String test() {
-            return MDC.get(CORRELATION_ID);
-        }
-
     }
 
 }
